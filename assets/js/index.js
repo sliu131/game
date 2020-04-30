@@ -10,3 +10,12 @@ function tick(timestamp) {
   window.requestAnimationFrame(this.tick.bind(this));
 }
 tick();
+
+function onclick(event) {
+  // console.log('onKeyDown');
+  // const key = event.key.toLowerCase();
+
+  console.log(event);
+}
+
+document.addEventListener('click', onclick);
