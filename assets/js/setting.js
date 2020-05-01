@@ -2,13 +2,12 @@ class Setting {
   _x = 0;
   _y = 0;
   _image;
-  _imageLocation = './assets/img/background.png';
+  _imageLocation = './assets/img/bag-place.png';
   bag;
 
   constructor() {
     console.log('Set:constructor');
     this._loadImage();
-    this.loadBagImage();
   }
 
   _loadImage() {
@@ -20,27 +19,17 @@ class Setting {
     this._image.src = this._imageLocation;
   }
 
-  loadBagImage() {
-    console.log('Set:_loadBagImage');
-    this.bag = new Image();
-    this.bag.onload = () => {
-      this.drawBag();
-    };
-    this.bag.src = './assets/img/bag-place.png';
-  }
-
   _draw() {
     ctx.beginPath();
-    // drawImage(image, dx, dy, dWidth, dHeight);
-    ctx.drawImage(this._image, this._x, this._y);
-  }
-  drawBag() {
+    ctx.fillStyle = '#D5F4FF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // draw Bag
     ctx.beginPath();
-    ctx.drawImage(this.bag, 1045, 76);
+    ctx.drawImage(this._image, 1045, 76);
   }
 
   tick() {
     this._draw();
-    this.drawBag();
   }
 }

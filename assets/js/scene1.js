@@ -4,8 +4,13 @@ class Scene1 {
   _image;
   _imageLocation = './assets/img/scene1.png';
 
+  cabinet;
+
   constructor() {
     console.log('Scene1:constructor');
+
+    this.cabinet = new Cabinet();
+
     this._loadImage();
   }
 
@@ -26,5 +31,6 @@ class Scene1 {
 
   tick() {
     this._draw();
+    this.cabinet.tick();
   }
 }

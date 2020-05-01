@@ -1,14 +1,20 @@
 class Cabinet {
-  _x = 670;
-  _y = 525;
+  // Public
+  x = 670;
+  y = 525;
+  width = 223;
+  height = 152;
+
+  // Private
   _image;
   _imageLocation = './assets/img/cab.png';
-  _spriteWidth = 223;
-  _spriteHeight = 152;
   _spriteFrames = 2;
   _currentFrame = 0;
 
-  constructor() {
+  constructor(x, y) {
+    this.x = x ?? this.x;
+    this.y = y ?? this.y;
+
     console.log('Cab:constructor');
     this._loadImage();
   }
@@ -27,24 +33,36 @@ class Cabinet {
     //   this._currentFrame += 1;
     // }
 
-    const spriteX = this._spriteWidth * this._currentFrame;
+    const spriteX = this.width * this._currentFrame;
     ctx.beginPath();
     ctx.drawImage(
       this._image,
       spriteX,
       0,
-      this._spriteWidth,
-      this._spriteHeight,
-      this._x,
-      this._y,
-      this._spriteWidth,
-      this._spriteHeight
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
     );
   }
 
-  // _openCab() {
-  //   console.log('Cab:open');
-  // }
+  openCabinet() {
+    console.log('Cab:open');
+  }
+
+  isClickedOn(mouseX, mouseY) {
+    // check if mouse between the left and right side
+    if (mouseX >= this.x && mouseX <= this.x + this.width) {
+      // check if mouse is between top and bottom side
+      if (mouseY >= this.y && mouseY <= this.y + this.height) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 
   tick(timestamp) {
     this._draw();
