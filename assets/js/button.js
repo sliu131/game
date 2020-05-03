@@ -1,19 +1,21 @@
-class Scene2 {
-  _x = 55;
-  _y = 75;
+class Button {
+  _x;
+  _y = 77;
   _image;
-  _imageLocation = './assets/img/scene2.png';
-  cabinet;
+  _imageLocation = './assets/img/left-button.png';
 
-  constructor() {
-    console.log('Scene2:constructor');
-    this.cabinet = new Cabinet();
-     this.rose = new Rose();
+  constructor(theX) {
+      this._x=theX;
+      if (this._x == 967) {
+          this._imageLocation="./assets/img/right-button.png"
+      }
+
+
     this._loadImage();
   }
 
   _loadImage() {
-    console.log('Scene2:_loadImage');
+
     this._image = new Image();
     this._image.onload = () => {
       this._draw();
@@ -24,11 +26,11 @@ class Scene2 {
   _draw() {
     ctx.beginPath();
     // drawImage(image, dx, dy, dWidth, dHeight);
+
     ctx.drawImage(this._image, this._x, this._y);
   }
 
   tick() {
     this._draw();
-    this.cabinet.tick();
   }
 }

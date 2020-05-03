@@ -3,10 +3,18 @@ const ctx = canvas.getContext('2d');
 
 const set = new Setting();
 const s1 = new Scene1();
-//const s2 = new Scene2();
+const s2 = new Scene2();
 const cab = new Cabinet();
 
 let currentScene = s1;
+
+function switchScene() {
+  if (currentScene == s1) {
+    currentScene = s2;
+  } else {
+    currentScene = s1;
+  }
+}
 
 function tick(timestamp) {
   // clear screen
@@ -31,10 +39,15 @@ function onClick(event) {
     currentScene.cabinet.openCabinet();
   }
 
-  // console.log('onKeyDown');
-  // const key = event.key.toLowerCase();
+  if (currentScene.button.isClickedOn(x, y)) {
+    switchScene();
+  }
 
   console.log(x, y);
 }
 
 canvas.addEventListener('click', onClick);
+
+
+switchScene();
+
