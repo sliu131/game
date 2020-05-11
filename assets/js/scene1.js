@@ -7,6 +7,8 @@ class Scene1 {
   constructor() {
     console.log('Scene1:constructor');
     this.button = new Button(55);
+    this.water = new Water();
+    this.battery = new Battery();
 
     this._loadImage();
   }
@@ -29,5 +31,7 @@ class Scene1 {
   tick() {
     this._draw();
     this.button.tick();
+    this.water.tick();
+    this.battery.tick();
   }
 }

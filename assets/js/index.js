@@ -7,7 +7,7 @@ const s2 = new Scene2();
 // const button = new Button();
 // const cab = new Cabinet();
 
-let currentScene = s1;
+let currentScene = s2;
 
 function switchScene() {
   if (currentScene == s1) {
@@ -38,6 +38,11 @@ function onClick(event) {
   if (s2.cabinet.isClickedOn(x, y)) {
     console.warn('Cabinet clicked on');
     s2.cabinet.openCabinet();
+  }
+
+  if (s2.rose.isClickedOn(x, y)) {
+    console.warn('Rose clicked on');
+    s2.rose.openRose();
   }
 
   if (currentScene.button.isClickedOn()) {

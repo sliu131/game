@@ -10,6 +10,7 @@ class Scene2 {
     this.button = new Button(967);
     this.cabinet = new Cabinet();
     this.rose = new Rose();
+    this.vending = new Vending();
     this._loadImage();
   }
 
@@ -31,5 +32,7 @@ class Scene2 {
   tick() {
     this._draw();
     this.cabinet.tick();
+    this.rose.tick();
+    this.vending.tick();
   }
 }
