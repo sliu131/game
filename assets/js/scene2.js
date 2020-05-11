@@ -7,8 +7,9 @@ class Scene2 {
 
   constructor() {
     console.log('Scene2:constructor');
+    this.button = new Button(967);
     this.cabinet = new Cabinet();
-     this.rose = new Rose();
+    this.rose = new Rose();
     this._loadImage();
   }
 

@@ -5,17 +5,15 @@ class Button {
   _imageLocation = './assets/img/left-button.png';
 
   constructor(theX) {
-      this._x=theX;
-      if (this._x == 967) {
-          this._imageLocation="./assets/img/right-button.png"
-      }
-
+    this._x = theX;
+    if (this._x == 967) {
+      this._imageLocation = './assets/img/right-button.png';
+    }
 
     this._loadImage();
   }
 
   _loadImage() {
-
     this._image = new Image();
     this._image.onload = () => {
       this._draw();
@@ -33,4 +31,5 @@ class Button {
   tick() {
     this._draw();
   }
+  switchScene() {}
 }

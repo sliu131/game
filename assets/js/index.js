@@ -4,7 +4,8 @@ const ctx = canvas.getContext('2d');
 const set = new Setting();
 const s1 = new Scene1();
 const s2 = new Scene2();
-const cab = new Cabinet();
+// const button = new Button();
+// const cab = new Cabinet();
 
 let currentScene = s1;
 
@@ -34,12 +35,12 @@ function onClick(event) {
   const x = event.offsetX;
   const y = event.offsetY;
 
-  if (currentScene.cabinet.isClickedOn(x, y)) {
+  if (s2.cabinet.isClickedOn(x, y)) {
     console.warn('Cabinet clicked on');
-    currentScene.cabinet.openCabinet();
+    s2.cabinet.openCabinet();
   }
 
-  if (currentScene.button.isClickedOn(x, y)) {
+  if (currentScene.button.isClickedOn()) {
     switchScene();
   }
 
@@ -47,7 +48,3 @@ function onClick(event) {
 }
 
 canvas.addEventListener('click', onClick);
-
-
-switchScene();
-
